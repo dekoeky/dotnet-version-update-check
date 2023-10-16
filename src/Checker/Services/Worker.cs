@@ -8,7 +8,7 @@ public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
     private readonly IDotnetVersionRetrieval _client;
-    private static readonly TimeSpan delay = TimeSpan.FromSeconds(10);
+    private static readonly TimeSpan Delay = TimeSpan.FromSeconds(10);
     private readonly IEqualityComparer<ReleaseIndex> _comparer = new ReleaseIndexComparison();
 
     public Worker(ILogger<Worker> logger, IDotnetVersionRetrieval client)
@@ -19,7 +19,7 @@ public class Worker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var timer = new PeriodicTimer(delay);
+        using var timer = new PeriodicTimer(Delay);
         while (!stoppingToken.IsCancellationRequested)
         {
             await CheckForNewVersions(stoppingToken);
