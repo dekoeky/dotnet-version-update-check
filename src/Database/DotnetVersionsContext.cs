@@ -5,6 +5,11 @@ namespace Database;
 
 public class DotnetVersionsContext : DbContext
 {
+    public DotnetVersionsContext(DbContextOptions<DotnetVersionsContext> options) : base(options)
+    {
+        
+    }
+
     public DbSet<Snapshot> Snapshots { get; set; }
 
     // public BloggingContext()

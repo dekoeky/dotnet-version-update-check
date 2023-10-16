@@ -7,6 +7,7 @@ public class SnapshotConfiguration : IEntityTypeConfiguration<Snapshot>
 {
     public void Configure(EntityTypeBuilder<Snapshot> builder)
     {
+        builder.ToTable("Snapshots");
         builder.Property(s => s.Id).ValueGeneratedOnAdd();
 
         builder.OwnsMany(s => s.Releases).ToJson();
