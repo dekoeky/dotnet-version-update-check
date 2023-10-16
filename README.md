@@ -1,0 +1,1 @@
+# dotnet-version-update-check
