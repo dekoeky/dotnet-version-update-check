@@ -30,7 +30,7 @@ public class Worker : BackgroundService
         {
             var reply = await _client.GetDotnetReleases(stoppingToken) ?? throw new NullReferenceException("The reply was empty");
 
-            foreach (var version in reply)
+            foreach (var version in reply.ReleasesIndex)
                 _logger.LogInformation("Discovered {ChannelVersion}", version.ChannelVersion);
         }
         catch (Exception ex)
